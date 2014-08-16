@@ -530,7 +530,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Mark</string>
+							<string>Test</string>
 							<false/>
 						</array>
 					</dict>
@@ -666,6 +666,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

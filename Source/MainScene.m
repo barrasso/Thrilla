@@ -232,8 +232,20 @@
     {
 		// Current cell represents a match. Create a "PlayerCell"
 		NSDictionary *currentGame = _allCells[index];
+        NSString *displayName;
+        displayName = [UserInfo shortNameFromName:[[UserInfo sharedUserInfo] name]];
+
 		PlayerCell *cellContent = (PlayerCell *)[CCBReader load:@"PlayerCell"];
-		cellContent.nameLabel.string = [UserInfo shortNameFromName:currentGame[@"opponentName"]];
+        
+        if ( [displayName isEqualToString:[UserInfo shortNameFromName:currentGame[@"gamedata"][@"playerName1"]]])
+        {
+            cellContent.nameLabel.string = [UserInfo shortNameFromName:currentGame[@"gamedata"][@"playerName2"]];
+        }
+        else
+        {
+            cellContent.nameLabel.string = [UserInfo shortNameFromName:currentGame[@"gamedata"][@"playerName1"]];
+        }
+
 		cellContent.player = @{@"username":currentGame[@"opponent"]};
 		[cell addChild:cellContent];
 		cell.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitPoints);

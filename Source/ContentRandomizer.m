@@ -17,7 +17,7 @@
     self.placeholderContent1 = [[NSMutableArray alloc] init];
     
     // Read in content.txt and separate strings by new line
-    self.path1 = [[NSBundle mainBundle] pathForResource:@"firstStringContent" ofType:@"txt"];
+    self.path1 = [[NSBundle mainBundle] pathForResource:@"wouldRatherFirstString" ofType:@"txt"];
     self.allContent1 = [NSString stringWithContentsOfFile:self.path1 encoding:NSUTF8StringEncoding error:NULL];
     self.lines1 = [self.allContent1 componentsSeparatedByString:@"\n"];
     
@@ -48,7 +48,7 @@
     self.placeholderContent2 = [[NSMutableArray alloc] init];
     
     // Read in content.txt and separate strings by new line
-    self.path2 = [[NSBundle mainBundle] pathForResource:@"secondStringContent" ofType:@"txt"];
+    self.path2 = [[NSBundle mainBundle] pathForResource:@"wouldRatherSecondString" ofType:@"txt"];
     self.allContent2 = [NSString stringWithContentsOfFile:self.path2 encoding:NSUTF8StringEncoding error:NULL];
     self.lines2 = [self.allContent2 componentsSeparatedByString:@"\n"];
     
@@ -79,7 +79,7 @@
     self.placeholderContent3 = [[NSMutableArray alloc] init];
     
     // Read in content.txt and separate strings by new line
-    self.path3 = [[NSBundle mainBundle] pathForResource:@"neverContent" ofType:@"txt"];
+    self.path3 = [[NSBundle mainBundle] pathForResource:@"wouldRatherContent" ofType:@"txt"];
     self.allContent3 = [NSString stringWithContentsOfFile:self.path3 encoding:NSUTF8StringEncoding error:NULL];
     self.lines3 = [self.allContent3 componentsSeparatedByString:@"\n"];
     

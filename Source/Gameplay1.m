@@ -59,6 +59,8 @@ static const int maxTilesSelected = 21;
     NSMutableArray *previousResponses;
     
     // Strings
+    NSString *playerName1;
+    NSString *playerName2;
     NSString *_opponent;
     NSString *_gameState;
     NSString *message;
@@ -104,6 +106,10 @@ static const int maxTilesSelected = 21;
     // If movecount is 1, then use already created arrays
     if (roundNumber == 1)
     {
+        playerName2 = [UserInfo shortNameFromName:[[UserInfo sharedUserInfo] name]];
+        
+        // Use previous;y initialized content
+        _gameData[@"playerName2"] = playerName2;
         questionContent = _gameData[@"questions"];
         contentArray1 = _gameData[@"content1"];
         contentArray2 = _gameData[@"content2"];
@@ -116,13 +122,18 @@ static const int maxTilesSelected = 21;
 		// No game exists, create starting game state and game data
 		_gameState = @"started";
         
+        playerName1 = [UserInfo shortNameFromName:[[UserInfo sharedUserInfo] name]];
+        playerName2 = @"placerholder";
+        _gameData[@"playerName1"] = playerName1;
+
+        
         // Initialize content arrays from randomizer
         questionContent = [[questionRandomizer createQuestions] mutableCopy];
         contentArray1 = [[contentRandomizer1 createContent1] mutableCopy];
         contentArray2 = [[contentRandomizer2 createContent2] mutableCopy];
         
         // Init game data
-		_gameData = [@{@"questions":questionContent, @"content1":contentArray1, @"content2":contentArray2, @"playerResponses":firstPlayerResponses} mutableCopy];
+		_gameData = [@{@"questions":questionContent, @"content1":contentArray1, @"content2":contentArray2, @"playerResponses":firstPlayerResponses, @"playerName1":playerName1, @"playerName2":playerName2} mutableCopy];
     }
 	
     // If the game is ended, display Post Gameplay scene
@@ -217,9 +228,9 @@ static const int maxTilesSelected = 21;
     
     // * Submit Game information to MGWU Server * //
     if (roundNumber == 0)
-        [self submitContent:questionContent withContent1:contentArray1 withContent2:contentArray2 withPlayerResponses:firstPlayerResponses];
+        [self submitContent:questionContent withContent1:contentArray1 withContent2:contentArray2 withPlayerResponses:firstPlayerResponses withPlayerName1:playerName1 withPlayerName2:playerName2];
     else
-        [self submitContent:questionContent withContent1:contentArray1 withContent2:contentArray2 withPlayerResponses:secondPlayerResponses];
+        [self submitContent:questionContent withContent1:contentArray1 withContent2:contentArray2 withPlayerResponses:secondPlayerResponses withPlayerName1:playerName1 withPlayerName2:playerName2];
     
     // Log finished game
     [MGWU logEvent:@"finished_game"];
@@ -252,7 +263,7 @@ static const int maxTilesSelected = 21;
 
 #pragma mark - Game Handling
 
--(void)submitContent:(NSMutableArray *)questionContent withContent1:(NSMutableArray *)content1 withContent2:(NSMutableArray *)content2 withPlayerResponses:(NSMutableArray *)playerResponseArray
+-(void)submitContent:(NSMutableArray *)questionContent withContent1:(NSMutableArray *)content1 withContent2:(NSMutableArray *)content2 withPlayerResponses:(NSMutableArray *)playerResponseArray withPlayerName1:(NSString *)playerName1 withPlayerName2:(NSString *)playerName2
 {
     // Set gameid and movenumber, both start at 0
     int gameId = [_game[@"gameid"] intValue];
@@ -398,26 +409,6 @@ static const int maxTilesSelected = 21;
     
     // Log second tile chosen
     [MGWU logEvent:@"second_answer_chosen"];
-}
-
-- (void)skipTile
-{
-    // Put "3" in responses array
-    if (roundNumber == 0)
-        [firstPlayerResponses addObject:@"3"];
-    
-    else
-        [secondPlayerResponses addObject:@"3"];
-    
-    // Increment tilesSelected
-    tilesSelected++;
-    
-    // Call Next Tile Method
-    if (tilesSelected != maxTilesSelected)
-        [self nextTileLabel];
-    
-    // Log first tile chosen
-    [MGWU logEvent:@"idk_answer_chosen"];
 }
 
 - (void)nextTileLabel
