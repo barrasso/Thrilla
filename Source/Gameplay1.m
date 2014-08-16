@@ -106,6 +106,7 @@ static const int maxTilesSelected = 21;
     // If movecount is 1, then use already created arrays
     if (roundNumber == 1)
     {
+        // Get the second player's name to replace placeholder
         playerName2 = [UserInfo shortNameFromName:[[UserInfo sharedUserInfo] name]];
         
         // Use previous;y initialized content
@@ -122,6 +123,7 @@ static const int maxTilesSelected = 21;
 		// No game exists, create starting game state and game data
 		_gameState = @"started";
         
+        // Get the first player's name and second player placeholder
         playerName1 = [UserInfo shortNameFromName:[[UserInfo sharedUserInfo] name]];
         playerName2 = @"placerholder";
         _gameData[@"playerName1"] = playerName1;
