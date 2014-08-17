@@ -365,13 +365,13 @@
 			name = "Word Game Content";
 			sourceTree = "<group>";
 		};
-		04324BAC1965DB3B002BB054 /* Pop ups */ = {
+		04324BAC1965DB3B002BB054 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
 				048E98CC19995A1F00A993A2 /* SliderLayer.h */,
 				048E98CD19995A1F00A993A2 /* SliderLayer.m */,
 			);
-			name = "Pop ups";
+			name = Layers;
 			sourceTree = "<group>";
 		};
 		045AD25D196EF2BC0073BFAA /* Utils */ = {
@@ -526,7 +526,7 @@
 				04324BA41965C0C8002BB054 /* Word Game Content */,
 				04FD8A701964679F0041C79D /* Delegate */,
 				04FD8A71196476260041C79D /* Gameplay */,
-				04324BAC1965DB3B002BB054 /* Pop ups */,
+				04324BAC1965DB3B002BB054 /* Layers */,
 				04FD8A6E196467940041C79D /* Scenes */,
 				045AD2691970575F0073BFAA /* TableView Cells */,
 				045AD25D196EF2BC0073BFAA /* Utils */,

@@ -32,6 +32,9 @@
 // List of Facebook friends
 @property (nonatomic, strong) NSMutableArray *friends;
 
+// Amount of credits
+@property (nonatomic, assign) int numberOfCredits;
+
 #pragma mark - User Info Methods
 
 // Access to User Info Singleton

@@ -14,6 +14,9 @@
 {
     // User Image
     UserImage *_playerSprite;
+    
+    // Labels
+    CCLabelTTF *_creditsLabel;
 }
 
 #pragma mark - Life Cycle
@@ -27,6 +30,10 @@
     
     // Set user picture
     _playerSprite.username = [[UserInfo sharedUserInfo] username];
+    
+    // Set user credits
+    _creditsLabel.string = [NSString stringWithFormat:@"%i CREDITS", [[UserInfo sharedUserInfo] numberOfCredits]];
+    
 }
 
 - (void)onExit

@@ -113,4 +113,21 @@ static id _sharedInstance = nil;
     }
 }
 
+#pragma mark - User Property Methods
+
+- (void)giveUserDailyCredits
+{
+    
+}
+
+- (void)spentCredits
+{
+    
+}
+
+- (void)boughtCredits
+{
+    
+}
+
 @end
