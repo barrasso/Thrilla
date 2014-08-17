@@ -237,6 +237,7 @@
 
 		PlayerCell *cellContent = (PlayerCell *)[CCBReader load:@"PlayerCell"];
         
+        // MAke sure to displaythe right match
         if ( [displayName isEqualToString:[UserInfo shortNameFromName:currentGame[@"gamedata"][@"playerName1"]]])
         {
             cellContent.nameLabel.string = [UserInfo shortNameFromName:currentGame[@"gamedata"][@"playerName2"]];
