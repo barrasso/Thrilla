@@ -28,6 +28,9 @@
     
     // Cells
     NSMutableArray *_allCells;
+    
+    // User Image
+    UserImage *_playerSprite;
 }
 
 #pragma mark - Lifecycle
@@ -48,6 +51,9 @@
     
     // Sets up the main table view
     [self setupTableView];
+    
+    // Init player image download
+    _playerSprite.username = [[UserInfo sharedUserInfo] username];
     
     // Create array that will hold all cells
     _allCells = [[NSMutableArray alloc] init];
@@ -220,12 +226,7 @@
 	
 	if ([currentCell isKindOfClass:[NSString class]])
     {
-//		// Current cell is a section, create a "SectionCell" for it
-//		SectionCell *cellContent = (SectionCell *)[CCBReader load:@"SectionCell"];
-//		cellContent.sectionTitleLabel.string = currentCell;
-//		[cell addChild:cellContent];
-//		cell.contentSizeType = CCSizeTypeMake(CCSizeUnitNormalized, CCSizeUnitPoints);
-//		cell.contentSize = CGSizeMake(1.f, 50.f);
+        // Section Cell
 	}
     
     else

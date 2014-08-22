@@ -33,7 +33,6 @@
     
     // Set user credits
     _creditsLabel.string = [NSString stringWithFormat:@"%i CREDITS", [[UserInfo sharedUserInfo] numberOfCredits]];
-    
 }
 
 - (void)onExit

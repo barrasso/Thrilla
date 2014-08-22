@@ -344,9 +344,14 @@ static const int maxTilesSelected = 21;
 
 #pragma mark - Helper Methods
 
+- (void)randomizeGameplay
+{
+    // Determine what game will be played on these mother fuckers
+}
+
 - (void)initializeArrays
 {
-    // Intit content randomizers
+    // Init content randomizers
     questionRandomizer = [[ContentRandomizer alloc] init];
     contentRandomizer1 = [[ContentRandomizer alloc] init];
     contentRandomizer2 = [[ContentRandomizer alloc] init];
