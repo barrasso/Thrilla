@@ -11,7 +11,4 @@
 
 @interface SliderLayer : CCNode
 
-// Main Scene
-//@property (nonatomic, weak) MainScene *mainScene;
-
 @end
