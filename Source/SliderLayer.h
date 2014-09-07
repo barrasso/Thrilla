@@ -7,7 +7,11 @@
 //
 
 #import "CCNode.h"
+#import "MainScene.h"
 
 @interface SliderLayer : CCNode
+
+// Main Scene
+//@property (nonatomic, weak) MainScene *mainScene;
 
 @end

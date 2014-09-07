@@ -35,12 +35,6 @@
 
 #pragma mark - Lifecycle
 
-- (void)dealloc
-{
-    // Remove table view delegate when this class is deallocated
-    [_tableView setTarget:nil selector:nil];
-}
-
 - (void)didLoadFromCCB
 {
     // Enable touches
@@ -89,6 +83,12 @@
         _tutorialNode.visible = YES;
     else
         _tutorialNode.visible = NO;
+}
+
+- (void)dealloc
+{
+    // Remove table view delegate when this class is deallocated
+    [_tableView setTarget:nil selector:nil];
 }
 
 #pragma mark - Helper Methods

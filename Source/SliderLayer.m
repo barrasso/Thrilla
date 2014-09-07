@@ -41,6 +41,12 @@
     [super onExit];
 }
 
+- (void)update:(CCTime)delta
+{
+    // Hacky way to display user's image
+    _playerSprite.username = [[UserInfo sharedUserInfo] username];
+}
+
 #pragma mark - Selectors
 
 - (void)viewProfile

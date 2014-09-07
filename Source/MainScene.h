@@ -6,9 +6,14 @@
 //
 
 #import "CCNode.h"
+#import "UserImage.h"
 
 @interface MainScene : CCNode <CCTableViewDataSource>
 
+// Get user picture
+//@property (nonatomic, strong) UserImage *playerSprite;
+
+// Load user info
 - (void)loadedUserInfo:(NSDictionary *)userInfo;
 
 @end
